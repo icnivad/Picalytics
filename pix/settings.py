@@ -60,12 +60,13 @@ USE_L10N = True
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
-MEDIA_ROOT = ''
+MEDIA_ROOT = MYFILEPATH+'Media/'
+print MEDIA_ROOT
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
-MEDIA_URL = ''
+MEDIA_URL = '/Media/'
 
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
@@ -115,11 +116,20 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
+TEMPLATE_CONTEXT_PROCESSORS = ('django.core.context_processors.request',
+'django.core.context_processors.auth',
+'django.core.context_processors.debug',
+'django.core.context_processors.i18n',
+'craigalytics.context_processors.get_useful_constants', # probably would be better if this was in the main app
+'django_session_stashable.stashed_object_counts',
+)
+
+
 ROOT_URLCONF = 'pix.urls'
 
 MYFILEPATH=os.path.dirname(os.path.dirname(__file__))+"/"
 TEMPLATE_DIRS = (
-	MYFILEPATH+"pix/email_tracker/Templates",
+	MYFILEPATH+"pix/craigalytics/Templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
@@ -137,7 +147,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'email_tracker',
+    'craigalytics',
 )
 
 # A sample logging configuration. The only tangible logging
