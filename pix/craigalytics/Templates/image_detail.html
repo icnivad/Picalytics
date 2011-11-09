@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Image Detail
+{% endblock %}
+
+{% block content %}
+<div class="row">
+<img src="{{image.image.url}}"/>
+<div>
+<br/>
+<div class="row">
+<h2>Copy this URL:</h2>
+{{url}}
+</div>
+<div class="row">
+<h2>Title: {{image.title}}</h2>
+</div>
+<div class="row">
+<h2>Number of Visits: {{image.num_visits}}</h2>
+<h2>Description:</h2>
+<p>{{image.description}}</p>
+</div>
+{% endblock %}

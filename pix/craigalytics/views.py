@@ -12,7 +12,7 @@ from django.template import RequestContext
 import models
 from django.conf import settings
 import myforms
-
+import datetime
 
 def create_image(request):
 	form=myforms.TrackImageForm()
@@ -20,14 +20,26 @@ def create_image(request):
 		form=myforms.TrackImageForm(request.POST, request.FILES)
 		img=form.save(commit=False)
 		img.save()
-		c={'form':form}
-		return redirect(reverse('image_details'))
+		return redirect(reverse('image_detail', kwargs={'short_code':img.shortcode}))
 	c={'form':form}
 	return render(request, 'image_create.html', c)
 
-def fetch_image(request, short_code):
-	image=models.TrackImage.objects.get(short_code=short_code)
-	return render(request, 'fetch_image.html', {'image':image})
+def fetch_image(request, short_code, image_name):
+	fetched=models.TrackImage.objects.get(shortcode=short_code)
+	fetched.num_visits+=1
+	fetched.save()
+	track_visit=models.TrackImageVisit(image_tracked=fetched)
+	track_visit.date_visited=datetime.datetime.now()
+	track_visit.user_agent=request.META['HTTP_USER_AGENT']
+	track_visit.ip=request.META['REMOTE_HOST']
+	track_visit.save()
+	return redirect(fetched.image.url)
 	
 def image_detail(request, short_code):
+	image=models.TrackImage.objects.get(shortcode=short_code)	
+	url=request.build_absolute_uri(reverse('fetch_image', kwargs={'short_code':image.shortcode, 'image_name':image.image.name.split("/")[-1]}))
+	return render(request, 'image_detail.html', {'image':image, 'url':url})
+	
+def list(request):
 	pass
+	
