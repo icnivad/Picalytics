@@ -19,6 +19,7 @@ def create_image(request):
 	if request.method=="POST":
 		form=myforms.TrackImageForm(request.POST, request.FILES)
 		img=form.save(commit=False)
+		img.date_created=datetime.datetime.now()
 		img.save()
 		return redirect(reverse('image_detail', kwargs={'short_code':img.shortcode}))
 	c={'form':form}
@@ -40,6 +41,6 @@ def image_detail(request, short_code):
 	url=request.build_absolute_uri(reverse('fetch_image', kwargs={'short_code':image.shortcode, 'image_name':image.image.name.split("/")[-1]}))
 	return render(request, 'image_detail.html', {'image':image, 'url':url})
 	
-def list(request):
-	pass
-	
+def image_list(request):
+	images=models.TrackImage.objects.all()
+	return render(request, 'image_list.html', {'images':images})

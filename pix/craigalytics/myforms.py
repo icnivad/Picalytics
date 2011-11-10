@@ -5,4 +5,4 @@ from models import TrackImage
 class TrackImageForm(ModelForm):
 	class Meta:
 		model=TrackImage
-		exclude=('shortcode','num_visits')
+		exclude=('shortcode','num_visits', 'date_created')

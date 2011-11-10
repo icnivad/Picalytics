@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}
+List of Images
+{% endblock %}
+
+{% block content %}
+<table class="zebra-striped">
+<thead>
+	<tr>
+		<th>
+		Image Title
+		</th>
+		<th>
+		Description
+		</th>
+		<th>
+		Number of Visits
+		</th>
+		<th>
+		Date Created
+		</th>
+	</tr>
+</thead>
+<tbody>
+{% for image in images %}
+<tr class="ad_details" my_href="{% url image_detail image.shortcode %}">
+	<td>
+	{{image.title}}
+	</td>
+	<td>
+	{{image.description}}
+	</td>
+	<td>
+	{{image.num_visits}}
+	</td>
+	<td>
+	{{image.date_created}}
+	</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}
