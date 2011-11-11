@@ -9,6 +9,8 @@ Create Image
 <form class='form-stacked' method="POST" action="" enctype="multipart/form-data">
 <div class="row">
 {% csrf_token %}
+<p>Images will be tracked using a URL shortcode which is generated from
+the keywords, so choose wisely!</p>
 {{form}}
 </div>
 <br/>

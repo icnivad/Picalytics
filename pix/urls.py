@@ -11,6 +11,8 @@ urlpatterns = patterns('',
     (r'^Media/(?P<path>.*)$', 'django.views.static.serve',  {'document_root': settings.MEDIA_ROOT}),
     url(r'^email/', include('pix.email_tracker.urls')),
     url(r'^my_images/', include('pix.craigalytics.urls')),
+    url(r'^$', 'main.views.main', name='main'),
+
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

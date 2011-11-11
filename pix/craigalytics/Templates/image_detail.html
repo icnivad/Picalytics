@@ -10,15 +10,50 @@ Image Detail
 <div>
 <br/>
 <div class="row">
-<h2>Copy this URL:</h2>
-{{url}}
+<h2>Copy and Paste This IMG Tag Into Your Ad:</h2>
+&ltimg src="{{url}}"/&gt
 </div>
 <div class="row">
 <h2>Title: {{image.title}}</h2>
 </div>
 <div class="row">
-<h2>Number of Visits: {{image.num_visits}}</h2>
 <h2>Description:</h2>
 <p>{{image.description}}</p>
+<h2>Number of Visits: {{image.num_visits}}</h2>
+<h2>Visitor Information:</h2>
+<!-- This table contains details about the users that have visited, 
+including location, user-agent, and date visited -->
+<table class="zebra-striped columns span9">
+<thead>
+	<tr>
+		<th>
+		Date Visited
+		</th>
+		<th>
+		User Agent
+		</th>
+		<th>
+		Location
+		</th>
+	</tr>
+</thead>
+<tbody>
+{% for visit in visits %}
+<tr>
+	<td>
+	{{visit.date_visited}}
+	</td>
+	<td>
+	{{visit.user_agent}}
+	</td>
+	<td>
+	{{visit.ip}}
+	</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+
 </div>
 {% endblock %}

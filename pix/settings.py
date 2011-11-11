@@ -2,6 +2,10 @@
 import os
 import sys
 
+# An additional file called localsettings.py needs to be defined
+# in order to provide database connections and other application-specific info
+from localsettings import *
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -11,29 +15,12 @@ MYDIRNAME="pix"
 MYMEDIAURL="Media"
 MYAPPURL=""
 
-EMAIL_USE_TLS = True
-EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'bearle2009@gmail.com'
-EMAIL_HOST_PASSWORD = '@k1ss1sjust'
-EMAIL_PORT = 587
-
-
 ADMINS = (
     # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'picalytics',                      # Or path to database file if using sqlite3.
-        'USER': 'root',                      # Not used with sqlite3.
-        'PASSWORD': 'cold',                  # Not used with sqlite3.
-        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-    }
-}
 
 # Local time zone for this installation. Choices can be found here:
 # http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
@@ -61,7 +48,6 @@ USE_L10N = True
 # Absolute filesystem path to the directory that will hold user-uploaded files.
 # Example: "/home/media/media.lawrence.com/media/"
 MEDIA_ROOT = MYFILEPATH+'Media/'
-print MEDIA_ROOT
 
 # URL that handles the media served from MEDIA_ROOT. Make sure to use a
 # trailing slash.
@@ -130,6 +116,7 @@ ROOT_URLCONF = 'pix.urls'
 MYFILEPATH=os.path.dirname(os.path.dirname(__file__))+"/"
 TEMPLATE_DIRS = (
 	MYFILEPATH+"pix/craigalytics/Templates",
+	MYFILEPATH+"pix/main/Templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
