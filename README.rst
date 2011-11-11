@@ -22,13 +22,13 @@ Make sure to run 'python manage.py syncdb' from the pix directory.
 
 That's it!  Now just restart your server - make sure its set up properly for your Django application.  
 
-It should be pretty straightforward to use this application in an existing Django project, but I haven't done it yet.  Most of the functionality is in the folder pix/craigalytics, with a few essential stylesheets and scripts in the Media folder.  Images are currently set up to be uploaded to the Media/Images/Uploads folder
+It should be pretty straightforward to install this application in a previously existing Django project.  Most of the functionality is in the folder pix/craigalytics, with a few essential stylesheets and scripts in the Media folder.  Images are currently set up to be uploaded to the Media/Images/Uploads folder
 
 ================
 Using Picalytics
 ================
 
-Basically this application lets you upload images, and then host them for use in craigslist ads.  Every time your ad is viewed, the image will be fetched from your website, and if you count the number of times it is fetched, you will know how often your ad has been viewed.  
+This application lets you upload images, and then host them for use in craigslist ads.  Every time your ad is viewed, the image will be fetched from your website, and if you count the number of times it is fetched, you will know how often your ad has been viewed.  
 
 I used Twitter's Bootstrap to style the application.  
 If you'd like to use your own style, or edit the templates,
@@ -47,7 +47,7 @@ Once you've created your image, you'll be taken to a page with details about the
 Tests
 =====
 
-I like tests.  Tests are good.  To run tests, go to the pix directory, and run the command 'python manage.py test --verbosity 2 craigalytics'.  Currently I have one test, which is not particularly useful, but someday my tests will grow and mature into good, decent, grown-up tests that do what they are supposed to.  I think having one test is better than zero tests.  If you would like to add more tests I will love you forever.  Also, if you create a test fixture, I will love you forever again.  I use high verbosity because I get bored waiting for the database to be set up, so I like to see something get printed while I'm waiting.  
+I like tests.  Tests are good.  To run tests, go to the pix directory, and run the command 'python manage.py test --verbosity 2 craigalytics'.  Currently I have one test, which is not particularly useful, but it's a start.  Feel free to add more tests and/or include some fixtures.  I use high verbosity because I get bored waiting for the database to be set up, so I like to see something get printed while I'm waiting.  
 
 =====
 To Do
