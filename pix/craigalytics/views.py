@@ -45,7 +45,7 @@ def fetch_image(request, short_code, image_name):
 def image_detail(request, short_code):
 	image=models.TrackImage.objects.get(shortcode=short_code)	
 	visits=models.TrackImageVisit.objects.filter(image_tracked=image)
-	url=request.build_absolute_uri(reverse('fetch_image', kwargs={'short_code':image.shortcode, 'image_name':image.image.name.split("/")[-1]}))
+	url=request.build_absolute_uri(settings.SUBSITE_URL+reverse('fetch_image', kwargs={'short_code':image.shortcode, 'image_name':image.image.name.split("/")[-1]}))
 	return render(request, 'image_detail.html', {'image':image, 'url':url, 'visits':visits})
 	
 def image_list(request):
