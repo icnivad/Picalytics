@@ -25,7 +25,7 @@ List of Images
 </thead>
 <tbody>
 {% for image in images %}
-<tr class="ad_details" my_href="{{SUBSITE_URL}}{% url image_detail image.shortcode %}">
+<tr class="ad_details" my_href="{% url image_detail image.shortcode %}">
 	<td>
 	{{image.title}}
 	</td>
