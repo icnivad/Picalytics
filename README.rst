@@ -4,7 +4,7 @@ Picalytics
 
 Picalytics (short for picture analytics) is a simple application for helping you track visits to your posts on sites which allow use of the <img> tag.  It can also be used to track the number of times your emails are opened.  
 
-I created this program to allow me to track my craigslist ads, as there is currently no other way to analyze ad performance on craigslist. 
+I created this program to allow me to track my craigslist ads, as there is currently no easy way to analyze ad performance on craigslist. 
 
 At some point, I might add some email tracking capabilities, but the email_tracker has not been implemented yet.
 
