@@ -6,6 +6,7 @@ import sys
 # in order to provide database connections and other application-specific info
 from localsettings import *
 
+FORCE_SCRIPT_NAME="/pix"
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
