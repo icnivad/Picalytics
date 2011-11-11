@@ -1,5 +1,6 @@
 from django.conf.urls.defaults import patterns, include, url
-import settings, suburls
+from django.conf import settings
+import suburls
 
 urlpatterns = patterns('',
     (r'^%s' % settings.SUBSITE , include(suburls))

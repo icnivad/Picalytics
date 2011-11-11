@@ -28,6 +28,16 @@ def move_static_files():
 		abort("Aborting at user request.")
 	run('cp -r /home/tukipenda/webapps/%s/CBT-Toolkit/Media/. /home/tukipenda/webapps/%s' % (env.app_folder, env.static_folder))
 
+def push_quick():
+	local('git add .')
+	local('git commit -m "quick"')
+	local('git push origin master')
+	push()
+
+def quick_deploy():
+	push_quick()
+	deploy()
+
 def deploy():
 	push()
 #	move_static_files()
