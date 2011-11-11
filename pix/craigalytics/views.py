@@ -23,7 +23,7 @@ def create_image(request):
 		img=form.save(commit=False)
 		img.date_created=datetime.datetime.now()
 		img.save()
-		return redirect(reverse('image_detail', kwargs={'short_code':img.shortcode}))
+		return redirect(settings.SUBSITE_URL+reverse('image_detail', kwargs={'short_code':img.shortcode}))
 	c={'form':form}
 	return render(request, 'image_create.html', c)
 
