@@ -28,7 +28,7 @@ It should be pretty straightforward to use this application in an existing Djang
 Using Picalytics
 ================
 
-Basically this application let's you upload images, and then host them for use in craigslist ads.  Every time your ad is viewed, the image will be fetched from your website, and if you count the number of times it is fetched, you will know how often your ad has been viewed.  
+Basically this application lets you upload images, and then host them for use in craigslist ads.  Every time your ad is viewed, the image will be fetched from your website, and if you count the number of times it is fetched, you will know how often your ad has been viewed.  
 
 I used Twitter's Bootstrap to style the application.  
 If you'd like to use your own style, or edit the templates,
@@ -37,7 +37,7 @@ you can find the important ones in pix/craigalytics/Templates and pix/main/Templ
 To create an image once the site is launched, go to 
 {{your_domain_name}}/my_images
 You'll be able to upload your desired image there.
-Next a few keywords which will be used to generate the shortcode URL that gets tracked.  Every time the image is viewed through this URL, the application will save details about the visitor, and the total number of visits will be counted.  
+Next enter a few keywords which will be used to generate the shortcode URL that gets tracked.  Every time the image is viewed through this URL, the application will save details about the visitor, and the total number of visits will be counted.  
 
 You can use Title and Description to store information about the ad you are tracking.  
 
