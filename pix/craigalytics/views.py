@@ -36,7 +36,7 @@ def fetch_image(request, short_code, image_name):
 	track_visit=models.TrackImageVisit(image_tracked=fetched)
 	track_visit.date_visited=datetime.datetime.now()
 	track_visit.user_agent=request.META['HTTP_USER_AGENT']
-	track_visit.ip=request.META['REMOTE_HOST']
+	track_visit.ip=request.META['HTTP_X_FORWARDED_FOR']
 	track_visit.save()
 	return redirect(fetched.image.url)
 
